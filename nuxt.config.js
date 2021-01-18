@@ -2,7 +2,7 @@ const routerBase =
   process.env.DEPLOY_ENV === "GH_PAGES"
     ? {
         router: {
-          base: "/my-portfolio/dist"
+          base: "/my-portfolio/"
         }
       }
     : {};
