@@ -1,32 +1,39 @@
 <template>
   <div id="top" class="container">
-    <transition name="fade">
-      <div v-if="show">
-        <div class="portfolio">
+    <div>
+      <transition name="move">
+        <div v-if="show" class="portfolio">
           portfolio
         </div>
-        <div class="top-img">
-          <div class="menu-header">
-            <div class="menu-about" @click="scrollAbout">
-              about
-            </div>
-            <div class="menu-gallery" @click="scrollGallery">
-              gallery
-            </div>
+      </transition>
+      <transition name="fade">
+        <div v-if="show" class="top-img"></div>
+      </transition>
+      <transition name="move">
+        <div v-if="show" class="menu-header">
+          <div class="menu-about" @click="scrollAbout">
+            about
+          </div>
+          <div class="menu-gallery" @click="scrollGallery">
+            gallery
           </div>
         </div>
-        <transition name="move">
-        <div class="bg-hana"></div>
-        <div class="bg-hana2"></div>
-        <div class="bg-hana3"></div>
-        <div class="bg-hana4"></div>
-        <div class="bg-hana5"></div>
-        <div class="bg-hana6"></div>
-        <div class="bg-hana7"></div>
-        <div class="bg-hana8"></div>
-        <div class="bg-hana9"></div>
-        </transition>
-        <div class="scroll-button-wrapper" @click="scrollTop">
+      </transition>
+      <transition name="move">
+        <div v-if="show">
+          <div class="bg-hana"></div>
+          <div class="bg-hana2"></div>
+          <div class="bg-hana3"></div>
+          <div class="bg-hana4"></div>
+          <div class="bg-hana5"></div>
+          <div class="bg-hana6"></div>
+          <div class="bg-hana7"></div>
+          <div class="bg-hana8"></div>
+          <div class="bg-hana9"></div>
+        </div>
+      </transition>
+      <transition name="move">
+        <div v-if="show" class="scroll-button-wrapper" @click="scrollTop">
           <svg fill="none" stroke="white" class="scroll-button">
             <use xlink:href="/svg/menu1.svg#item" />
           </svg>
@@ -39,8 +46,9 @@
             <p>i</p>
           </div>
         </div>
-
-        <div ref="about" class="about">
+      </transition>
+      <transition name="move">
+        <div v-if="show" ref="about" class="about">
           <div class="title">
             About
           </div>
@@ -90,7 +98,9 @@
             </div>
           </div>
         </div>
-        <div ref="gallery" class="gallery">
+      </transition>
+      <transition name="move">
+        <div v-if="show" ref="gallery" class="gallery">
           <div class="title">
             Gallery
           </div>
@@ -117,24 +127,26 @@
             </div>
           </div>
         </div>
-        <div class="footer">
+      </transition>
+      <transition name="move">
+        <div v-if="show" class="footer">
           <div class="footer-main">
             ©︎2020 ukisui
           </div>
         </div>
-        <div :class="['modal', modalIndex === null ? null : 'is-active']">
-          <div class="modal-background" @click="modalIndex = null"></div>
-          <div class="modal-content">
-            <galleries ref="galleries"></galleries>
-          </div>
-          <button
-            class="modal-close is-large"
-            aria-label="close"
-            @click="modalIndex = null"
-          ></button>
+      </transition>
+      <div :class="['modal', modalIndex === null ? null : '']">
+        <div class="modal-background" @click="modalIndex = null"></div>
+        <div class="modal-content">
+          <galleries ref="galleries"></galleries>
         </div>
+        <button
+          class="modal-close is-large"
+          aria-label="close"
+          @click="modalIndex = null"
+        ></button>
       </div>
-    </transition>
+    </div>
   </div>
 </template>
 
@@ -289,6 +301,8 @@ export default {
   flex-direction: column;
   padding: 50px;
   top: 0;
+  padding-top: 10%;
+  width: 75%;
 }
 .menu-about {
   z-index: 1;
@@ -687,9 +701,17 @@ export default {
 }
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.8s;
+  transition: opacity 1s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.move-enter-active,
+.move-leave-active {
+  transition: opacity 1s;
+  transition-delay: 1s;
+}
+.move-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 // .bg-hana {
