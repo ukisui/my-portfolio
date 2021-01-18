@@ -1,4 +1,13 @@
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/<repository-name>/'
+        }
+      }
+    : {}
 export default {
+  ...routerBase,
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'test',
