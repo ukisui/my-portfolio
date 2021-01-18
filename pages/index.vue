@@ -15,14 +15,8 @@
             </div>
           </div>
         </div>
-        <!-- <div class="menu-button-wrapper">
-      <svg fill="none" stroke="white" class="menu-button">
-        <use xlink:href="/svg/menu2.svg#item" />
-      </svg>
-    </div> -->
-        <transition name="fade">
-          <div class="bg-hana"></div>
-        </transition>
+        <transition name="move">
+        <div class="bg-hana"></div>
         <div class="bg-hana2"></div>
         <div class="bg-hana3"></div>
         <div class="bg-hana4"></div>
@@ -31,6 +25,7 @@
         <div class="bg-hana7"></div>
         <div class="bg-hana8"></div>
         <div class="bg-hana9"></div>
+        </transition>
         <div class="scroll-button-wrapper" @click="scrollTop">
           <svg fill="none" stroke="white" class="scroll-button">
             <use xlink:href="/svg/menu1.svg#item" />
@@ -697,7 +692,7 @@ export default {
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
-.bg-hana {
-  transition-delay: 2s;
-}
+// .bg-hana {
+//   transition-delay: 2s;
+// }
 </style>
