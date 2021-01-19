@@ -19,7 +19,7 @@
           </div>
         </div>
       </transition>
-      <transition name="move">
+      <transition name="move-hana">
         <div v-if="show">
           <div class="bg-hana"></div>
           <div class="bg-hana2"></div>
@@ -55,6 +55,9 @@
           <div class="about-body">
             <div class="profile-body">
               <div class="profilename-body">
+                <div class="profile-icon">
+                <img src="/img/profile-icon.png" alt="" />
+              </div>
                 <div class="profile-name temp">
                   原田 沙織
                 </div>
@@ -135,7 +138,7 @@
           </div>
         </div>
       </transition>
-      <div :class="['modal', modalIndex === null ? null : '']">
+      <div :class="['modal', modalIndex === null ? null : 'is-active']">
         <div class="modal-background" @click="modalIndex = null"></div>
         <div class="modal-content">
           <galleries ref="galleries"></galleries>
@@ -171,10 +174,7 @@ export default {
           title: "ファッションサイト バナー",
           imgSrc: "/img/fashion-icon.png"
         },
-        {
-          title: "オーガニックオイル　新発売バナー例",
-          imgSrc: "/img/oil-icon.png"
-        },
+
         {
           title: "不動産チラシ(モノクロ)",
           imgSrc: "/img/rbm-icon.png"
@@ -202,6 +202,10 @@ export default {
         {
           title: "アイクリームLPへのインスタ用誘導バナー",
           imgSrc: "/img/cream-icon.png"
+        },
+        {
+          title: "その他バナー例",
+          imgSrc: "/img/oil-icon.png"
         }
       ],
       skills: [
@@ -237,12 +241,12 @@ export default {
         },
         {
           name: "Vue.js",
-          rateSrc: "/img/hoshi1.png",
+          rateSrc: "/img/hoshi2.png",
           iconSrc: "/img/vue-icon.png"
         },
         {
           name: "Nuxt.js",
-          rateSrc: "/img/hoshi1.png",
+          rateSrc: "/img/hoshi2.png",
           iconSrc: "/img/nuxt-icon.png"
         }
       ],
@@ -282,6 +286,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.profile-icon {
+  width: 70px;
+  height: 70px;
+  // margin-left: 80px;
+  padding-bottom: 20px;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  }
 .portfolio {
   font-family: YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN",
     "ヒラギノ角ゴ ProN W3", "Arial", "メイリオ", Meiryo, sans-serif;
@@ -309,6 +322,7 @@ export default {
   cursor: pointer;
   text-align: left;
   margin-bottom: 50px;
+  width: 10%;
 }
 .menu-about:hover {
   color: #fff;
@@ -317,6 +331,7 @@ export default {
   cursor: pointer;
   z-index: 1;
   text-align: left;
+  width: 10%;
 }
 .menu-gallery:hover {
   color: #fff;
@@ -571,6 +586,7 @@ export default {
   letter-spacing: 1px;
   text-align: left;
   width: 75%;
+  padding-left: 10px;
 }
 .profilename-rubi {
   font-family: YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN",
@@ -581,19 +597,21 @@ export default {
   letter-spacing: 1px;
   display: flex;
   flex-direction: column-reverse;
-  padding-bottom: 40px;
+  padding-bottom: 10px;
 }
 .profilename-body {
   display: flex;
-  /* justify-content: center; */
+  justify-content:left;
   flex-direction: row;
-  /* align-items: center; */
-  text-align: left;
+  align-items: center;
+  // text-align: left;
+  padding-bottom: 30px;
 }
 .profile-name {
   text-align: left;
   padding-right: 10px;
-  padding-bottom: 40px;
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
 .profile-body {
   display: flex;
@@ -708,10 +726,19 @@ export default {
 }
 .move-enter-active,
 .move-leave-active {
+  transition: opacity 1s, transform 1s;
+  transition-delay: 1.8s;
+}
+.move-enter, .move-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translate(20px, 0);
+}
+.move-hana-enter-active,
+.move-hana-leave-active {
   transition: opacity 1s;
   transition-delay: 1s;
 }
-.move-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.move-hana-enter, .move-hana-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 // .bg-hana {
