@@ -20,18 +20,32 @@
         </div>
       </transition>
       <transition name="move-hana">
-        <div v-if="show">
-          <div class="bg-hana"></div>
-          <div class="bg-hana2"></div>
-          <div class="bg-hana3"></div>
-          <div class="bg-hana4"></div>
-          <div class="bg-hana5"></div>
-          <div class="bg-hana6"></div>
-          <div class="bg-hana7"></div>
-          <div class="bg-hana8"></div>
-          <div class="bg-hana9"></div>
-        </div>
-      </transition>
+        <div v-if="show" class="bg-hana"></div
+      ></transition>
+      <transition name="move-hana">
+        <div v-if="show" class="bg-hana2"></div
+      ></transition>
+      <transition name="move-hana">
+        <div v-if="show" class="bg-hana3"></div
+      ></transition>
+      <transition name="move-hana">
+        <div v-if="show" class="bg-hana4"></div
+      ></transition>
+      <transition name="move-hana">
+        <div v-if="show" class="bg-hana5"></div
+      ></transition>
+      <transition name="move-hana">
+        <div v-if="show" class="bg-hana6"></div
+      ></transition>
+      <transition name="move-hana">
+        <div v-if="show" class="bg-hana7"></div
+      ></transition>
+      <transition name="move-hana">
+        <div v-if="show" class="bg-hana8"></div
+      ></transition>
+      <transition name="move-hana">
+        <div v-if="show" class="bg-hana9"></div
+      ></transition>
       <transition name="move">
         <div v-if="show" class="scroll-button-wrapper" @click="scrollTop">
           <svg fill="none" stroke="white" class="scroll-button">
@@ -56,8 +70,8 @@
             <div class="profile-body">
               <div class="profilename-body">
                 <div class="profile-icon">
-                <img src="/img/profile-icon.png" alt="" />
-              </div>
+                  <img src="/img/profile-icon.png" alt="" />
+                </div>
                 <div class="profile-name temp">
                   原田 沙織
                 </div>
@@ -139,14 +153,14 @@
         </div>
       </transition>
       <div :class="['modal', modalIndex === null ? null : 'is-active']">
-        <div class="modal-background" @click="modalIndex = null"></div>
+        <div class="modal-background" @click="showModal(null)"></div>
         <div class="modal-content">
           <galleries ref="galleries"></galleries>
         </div>
         <button
           class="modal-close is-large"
           aria-label="close"
-          @click="modalIndex = null"
+          @click="showModal(null)"
         ></button>
       </div>
     </div>
@@ -291,10 +305,10 @@ export default {
   height: 70px;
   // margin-left: 80px;
   padding-bottom: 20px;
-   display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  }
+}
 .portfolio {
   font-family: YuGothic, "Yu Gothic", "Hiragino Kaku Gothic ProN",
     "ヒラギノ角ゴ ProN W3", "Arial", "メイリオ", Meiryo, sans-serif;
@@ -601,7 +615,7 @@ export default {
 }
 .profilename-body {
   display: flex;
-  justify-content:left;
+  justify-content: left;
   flex-direction: row;
   align-items: center;
   // text-align: left;
