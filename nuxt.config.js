@@ -8,6 +8,7 @@ const routerBase =
     : {};
 export default {
   ...routerBase,
+  target: "static",
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: "test",
